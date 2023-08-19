@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './app.scss';
+import Protfoio from './components/Protfolio/Protfoio';
+import Testimonial from './components/Testimonial/Testimonial';
+import Topbar from './components/Topbar/Topbar';
+import Works from './components/Works/Works';
+import Intro from './components/Intro/Intro';
+import Contact from './components/Contact/Contact';
+import { useState } from 'react';
 function App() {
+  const [menuitems, setMenuitems] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Topbar menuitems={menuitems} setMenuitems={setMenuitems}></Topbar>
+      <div className='sections'>
+        <Intro></Intro>
+        <Protfoio></Protfoio>
+        <Works></Works>
+        <Testimonial></Testimonial>
+        <Contact></Contact>
+      </div>
     </div>
   );
 }
