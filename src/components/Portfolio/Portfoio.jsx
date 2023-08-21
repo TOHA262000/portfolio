@@ -1,41 +1,86 @@
-import React from 'react';
-import './portfolio.scss'
+import React, { useEffect, useState } from 'react';
+import PortfolioList from '../PortfolioList/PortfolioList';
+import './portfolio.scss';
+import {
+    featuredPortfolio,
+    webPortfolio,
+    mobilePortfolio,
+    designPortfolio,
+    contentPortfolio
+} from '../../data';
+import PortfolioItem from '../PortfolioItem/PortfolioItem';
 const Protfoio = () => {
+    const [select,setSelect]=useState('featured');
+    const [ data,setData]=useState([]);
+    useEffect(()=>{
+        switch(select){
+            case "featured":
+                setData(featuredPortfolio);
+                break;
+            case "mobile":
+                setData(mobilePortfolio);
+                break;
+            case "design":
+                setData(designPortfolio);
+                break;
+            case "web":
+                setData(webPortfolio);
+                break;
+            case "content":
+                setData(contentPortfolio);
+                break;
+            default:
+                setData(featuredPortfolio);
+        }
+    },[select])
+    const options = [
+        {
+            name: 'Featured',
+            id: 'featured',
+        },
+        {
+            name: 'Web App',
+            id: 'web',
+        },
+        {
+            name: 'Mobile App',
+            id: 'mobile',
+        },
+        {
+            name: 'Design',
+            id: 'design',
+        },
+        
+        {
+            name: 'Content',
+            id: 'content',
+        }
+    ]
     return (
         <div className='portfolio' id='portfolio'>
             <h1>Portfolio</h1>
             <ul>
-                <li className='active'>Featured</li>
-                <li>Web App</li>
-                <li>Mobile App</li>
-                <li>Design</li>
-                <li>Branding</li>
+                {
+                    options.map((option)=>(
+                        <PortfolioList
+                            key={option.id}
+                            name={option.name}
+                            active={select===option.id}
+                            setSelect={setSelect}
+                            id={option.id}
+                        ></PortfolioList>
+                    ))
+                }
             </ul>
             <div className="container">
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
-                <div className="item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/260/247/original/illustration-graphic-cartoon-character-of-money-saving-of-bank-free-vector.jpg" alt="" />
-                    <h4>Banking App</h4>
-                </div>
+                
+                {data.map((item)=>(
+                    <PortfolioItem
+                        key={item.id}
+                        name={item.title}
+                        img={item.img}
+                    ></PortfolioItem>
+                ))}
             </div>
         </div>
     );

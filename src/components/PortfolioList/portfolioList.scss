@@ -1,0 +1,14 @@
+@import '../../universal.scss';
+.portfolioList{
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 7px;
+    color: $main-color;
+    cursor: pointer;
+
+    &.active {
+        background-color: $main-color;
+        color: white;
+        border-radius: 4px;
+    }
+}
