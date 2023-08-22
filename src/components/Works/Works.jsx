@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './works.scss'
 
 const Works = () => {
+  const[currentslide,setCurrentslide]=useState(0);
   const data = [
     {
       id: "1",
@@ -31,9 +32,13 @@ const Works = () => {
         "https://i.pinimg.com/originals/a9/f6/94/a9f69465d972a004ad581f245d6ad581.jpg",
     },
   ];
+  const handleSlider=(way)=>{
+    way==='left'?setCurrentslide(currentslide>0?currentslide-1:data.length-1):
+    setCurrentslide(currentslide<data.length-1?currentslide+1:0)
+  }
   return (
     <div className='works' id='works'>
-      <div className="slider">
+      <div className="slider" style={{transform:`translateX(-${currentslide*100}vw)`}}>
         {data.map(item => (
           <div className="container">
             <div className="content">
@@ -53,8 +58,8 @@ const Works = () => {
           </div>
         ))}
       </div>
-      <img className='left arrow' src="assets/arrow.png" alt="" />
-      <img className='right arrow' src="assets/arrow.png" alt="" />
+      <img onClick={()=>handleSlider("left")} className='left arrow' src="assets/arrow.png" alt="" />
+      <img onClick={()=>handleSlider()} className='right arrow' src="assets/arrow.png" alt="" />
     </div>
   );
 };

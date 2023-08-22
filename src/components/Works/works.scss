@@ -28,14 +28,13 @@
         }
 
     }
-
     .slider {
         height: 350px;
         display: flex;
         justify-content: center;
         position: absolute;
-        left:0;
-
+        left:0 ;
+        transition: all 1s ease;
         .container {
             width: 100vw;
             display: flex;
@@ -99,7 +98,8 @@
 
                     img {
                         transform: rotate(-10deg);
-                        width: 380px;
+                        width: 400px;
+                        
                     }
 
 
