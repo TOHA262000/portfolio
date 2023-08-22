@@ -1,3 +1,113 @@
 .works{
-    background-color: lightsalmon;
+    background-color: crimson;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .arrow{
+        position: absolute;
+        width: 40px;
+        animation: blink 1s infinite;
+        &.left{
+            left: 100px;
+            transform: rotateY(180deg);
+        }
+        &.right{
+            right: 100px;
+        }
+        
+
+    }
+    @keyframes blink {
+        to{
+            opacity: 0;
+        }
+        
+    }
+    .slider{
+        height: 350px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        .content{
+            width: 700px;
+            height: 100%;
+            background-color: white;
+            border-radius: 15px;
+            display: flex;
+            .left{
+                flex: 4;
+                height: 100%;
+                margin: 0px 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .imageContainer{
+                    height: 40px;
+                    width: 40px;
+                    background-color: lightsalmon;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 25px;
+                    }
+                }
+                h2{
+                    font-size: 20px;
+                }
+                p{
+                    font-size: 13px;
+                }
+                span{
+                    font-size: 12px;
+                    font-weight: 500;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                
+            }
+            .right{
+                flex: 8;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                img{
+                    transform: rotate(-10deg);
+                    width: 381px;
+                }
+                
+
+            }
+        }
+    }
+
+
+
+
+    
+    // .slider{
+    //     height: 350px;
+    //     position: absolute;
+    //     display: flex;
+    //     left: 0;
+    //     .container{
+    //         width: 100vw;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         .content{
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //             height: 100%;
+    //             background-color: white;
+    //             border-radius: 15px;
+    //             width: 700px;
+    //         }
+    //     }
+    // }
 }
