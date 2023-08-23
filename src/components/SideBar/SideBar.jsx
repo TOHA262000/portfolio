@@ -14,7 +14,7 @@ const SideBar = ({menuitems,setMenuitems}) => {
                     <a href="#works">Works</a>
                 </li>
                 <li onClick={()=>setMenuitems(false)}>
-                    <a href="#testimonial">Testimonial</a>
+                    <a href="#testimonial">Testimonials</a>
                 </li>
                 <li onClick={()=>setMenuitems(false)}>
                     <a href="#contact">Contact</a>
