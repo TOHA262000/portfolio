@@ -14,36 +14,43 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
+        .logo {
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 600;
+            margin-right: 20px;
+            color: inherit;
 
-
+        }
         .left {
             display: flex;
 
-            .logo {
-                text-decoration: none;
-                font-size: 25px;
-                font-weight: 600;
-                margin-right: 20px;
-                color: inherit;
-
-            }
-
-            .items {
+            align-items: flex-start;
+            .email-phone{
                 display: flex;
-                align-items: center;
-                margin-left: 25px;
-
-                span {
-
-                    font-weight: 300;
+                @include mobile{
+                    display: none;
                 }
-
-                .icon {
-                    font-size: 20px;
-                    margin-right: 5px;
-                    color: $main-color;
+                .items {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 25px;
+    
+                    span {
+    
+                        font-weight: 300;
+                    }
+    
+                    .icon {
+                        font-size: 20px;
+                        margin-right: 5px;
+                        color: $main-color;
+                    }
                 }
             }
+            
+            
         }
 
         .right {

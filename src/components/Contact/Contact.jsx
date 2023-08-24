@@ -1,6 +1,9 @@
 import React from 'react';
 import './contact.scss'
 const Contact = () => {
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+    }
     return (
         <div className='contact' id='contact'>
             <div className="left">
@@ -8,7 +11,7 @@ const Contact = () => {
             </div>
             <div className="right">
                 <h1>Contact.</h1>
-                <form action="">
+                <form onSubmit={handleSubmit} action="">
                     
                     <input  type="email" placeholder='Email' />
                     <textarea placeholder='Message' id="" cols="30" rows="10"></textarea>

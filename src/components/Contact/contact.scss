@@ -1,8 +1,12 @@
+@import "../../universal.scss";
 .contact{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
+    @include mobile{
+        flex-direction: column;
+    }
     .left{
         flex: 0.5;
         img{
@@ -23,7 +27,9 @@
             align-items: center;
             justify-content: space-between;
             margin: 10px 0;
-            
+            @include mobile{
+                height: 70%;
+            }
             input{
                 width: 275px;
                 padding: 5px;
