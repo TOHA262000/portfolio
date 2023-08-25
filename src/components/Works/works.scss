@@ -1,3 +1,4 @@
+@import '../../universal.scss';
 .works {
     background-color: crimson;
     display: flex;
@@ -9,14 +10,18 @@
         position: absolute;
         width: 40px;
         animation: blink 1s infinite;
-
+        @include mobile{
+            display: none;
+        }
         &.left {
             left: 100px;
             transform: rotateY(180deg);
+            
         }
 
         &.right {
             right: 100px;
+            
         }
 
 
@@ -35,12 +40,17 @@
         position: absolute;
         left:0 ;
         transition: all 1s ease;
+        @include mobile{
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
         .container {
             width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
-
+        
             .content {
                 width: 700px;
                 height: 100%;
@@ -49,6 +59,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                @include mobile{
+                    width: 250px;
+                }
                 .left {
                     flex: 3.5;
                     height: 80%;
@@ -56,6 +69,9 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
+                    @include mobile{
+                        flex: 4.5;
+                    }
 
                     .imageContainer {
                         height: 40px;
@@ -65,18 +81,30 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-
+                        @include mobile{
+                            height: 30px;
+                            width: 30px;
+                        }
                         img {
                             width: 25px;
+                            @include mobile{
+                                width: 15px;
+                            }
                         }
                     }
 
                     h2 {
                         font-size: 20px;
+                        @include mobile{
+                            font-size: 15px;
+                        }
                     }
 
                     p {
                         font-size: 13px;
+                        @include mobile{
+                            font-size: 09px;
+                        }
                     }
 
                     span {
@@ -84,6 +112,9 @@
                         font-weight: 500;
                         text-decoration: underline;
                         cursor: pointer;
+                        @include mobile{
+                            font-size: 10px;
+                        }
                     }
 
                 }
@@ -95,7 +126,9 @@
                     align-items: center;
                     justify-content: center;
                     overflow: hidden;
-
+                    @include mobile{
+                        flex: 7.5;
+                    }
                     img {
                         transform: rotate(-10deg);
                         width: 400px;

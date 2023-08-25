@@ -8,6 +8,9 @@
 
     .h1 {
         font-size: 50px;
+        @include mobile{
+            font-size: 30px;
+        }
     }
 
     .container {
@@ -16,7 +19,11 @@
         justify-content: center;
 
         height: 80%;
-
+        @include mobile{
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100%;
+        }
         .card {
             width: 250px;
             height: 70%;
@@ -29,10 +36,17 @@
             border-radius: 10px;
             box-shadow: 0px 0px 15px -8px black;
             transition: all 1s ease;
+            @include mobile{
+               height: 170px;
+            }
 
             &.feature {
                 width: 300px;
                 height: 80%;
+                @include mobile{
+                    height: 170px;
+                    width: 250px;
+                }
             }
 
             &:hover {
@@ -51,6 +65,11 @@
                     border-radius: 50%;
                     margin: 0 10px;
                     object-fit: cover;
+                    @include mobile{
+                        height: 40px;
+                        width: 40px;
+                    }
+                    
                 }
 
                 .icon {
@@ -63,9 +82,17 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-
+                h3{
+                    @include mobile{
+                        font-size: 15px;
+                    }
+                }
                 p {
                     color: gray;
+                
+                    @include mobile{
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -74,7 +101,9 @@
                 border-radius: 10px;
                 background-color: rgb(250, 244, 245);
                 padding: 5px;
-
+                @include mobile{
+                    font-size: 13px;
+                }
             }
         }
 
